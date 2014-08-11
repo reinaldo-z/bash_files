@@ -1,0 +1,29 @@
+# There is needed ot add the address of this file  into the ~/.bashrc  original file.
+
+#CHANGE DIRECTORY ALIASES
+alias cddoc='cd ~/documentos/estudios/doctorado/'
+alias cdjas='cd ~/documentos/clases/Jassa/'
+
+#COMMON BASH USED ALIASES
+alias cl='clear'
+alias l='ls'
+alias l1='ls -1'
+alias l1r='ls -1r'
+alias l1a='ls -1A'
+alias l1ar='ls -1Ar'
+alias la='ls -A'
+alias x='exit'
+
+#GIT ALIASES
+alias ga='git add *'
+alias gb='git branch'
+alias gpo='git push origin'
+alias gs='git status'
+
+#SCRIPT ALIASES
+alias plotex='/home/reinaldo/system_config/bash_files/plotex.sh'
+alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
+
+#SSH ALIASES
+alias sm='ssh medusa'
+alias sa='ssh aida'
