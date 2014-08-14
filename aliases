@@ -6,7 +6,6 @@
 #export LANG="C"
 #export LC_MESSAGES="C"
 #BRANCH ORIGINAL TINIBA DEFINITIONS:
-	User specific aliases and functions for "origin/original" branch of tibiba using git-github:
 	#export TINIBA=$HOME/tiniba/ver2.0/
 	#export TINIBAC=$TINIBA/clustering/itaxeo
 	#export TINIBAU=$TINIBA/utils
