@@ -1,5 +1,24 @@
 # There is needed ot add the address of this file  into the ~/.bashrc  original file.
 
+#MEDUSA ALIASES / EXPORT
+#alias abinit='/home/prog/HEXA/abinit-7.0.5/abinit/bin/abinit'
+#export LANGUAGE="en"
+#export LANG="C"
+#export LC_MESSAGES="C"
+#BRANCH ORIGINAL TINIBA DEFINITIONS:
+	User specific aliases and functions for "origin/original" branch of tibiba using git-github:
+	#export TINIBA=$HOME/tiniba/ver2.0/
+	#export TINIBAC=$TINIBA/clustering/itaxeo
+	#export TINIBAU=$TINIBA/utils
+	#export PATH=$PATH:$TINIBAC:$TINIBAU:.
+#BRANCH SEAN'S MASTER DEFINITIONS:
+	export TINIBA=$HOME/tiniba
+	export PATH="$TINIBA/clustering:$TINIBA/utils:$PATH"
+# Source global definitions
+	if [ -f /etc/bashrc ]; then
+		. /etc/bashrc
+	fi
+
 #CHANGE DIRECTORY ALIASES
 alias cddoc='cd ~/documentos/estudios/doctorado/'
 alias cdjas='cd ~/documentos/clases/Jassa/'
@@ -23,7 +42,6 @@ alias gs='git status'
 #SCRIPT ALIASES
 alias plotex='/home/reinaldo/system_config/bash_files/plotex.sh'
 alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
-
 #SSH ALIASES
 alias sm='ssh medusa'
 alias sa='ssh aida'
