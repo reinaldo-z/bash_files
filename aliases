@@ -36,6 +36,7 @@ alias x='exit'
 #GIT ALIASES
 alias ga='git add *'
 alias gb='git branch'
+alias gc='git commit -am'
 alias gpo='git push origin'
 alias gs='git status'
 
