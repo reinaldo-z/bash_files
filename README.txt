@@ -5,6 +5,7 @@ This repository contains the bash configuration files and also some useful scrip
 BASH FILES FOLDER
 	BASHRC FILE
 		The "bashrc" file contains useful aliases and the customization of the prompt output.
+		Also for this branch there was created an specific bashrc fiel to configure the bash where im in medusa.
 		There is needed ot add <source /whatever/this_file> into the "~/.bashrc"  original file to have it working.
 		Using this bashrc you will have, with the "check_branch" finction, the option to check if youre in a git repo. If you are in it then will be displayed the branch name and the statuss: up to date (only the name of the branch), dirty (branch name + "*"), need to commit (branch name + <-- comm), and need to push to origin (branch name + --> Or).
 	

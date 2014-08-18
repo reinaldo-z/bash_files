@@ -29,3 +29,4 @@ alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
 #SSH ALIASES
 alias sm='ssh medusa'
 alias sa='ssh aida'
+
