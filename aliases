@@ -1,24 +1,5 @@
 # There is needed ot add the address of this file  into the ~/.bashrc  original file.
 
-#MEDUSA ALIASES / EXPORT
-alias abinit='/home/prog/HEXA/abinit-7.0.5/abinit/bin/abinit' #abinit7.5
-alias sabinit="/home/sma/bin/bin/abinip"		      #Sean's abinit ver.
-export LANGUAGE="en"
-export LANG="C"
-export LC_MESSAGES="C"
-        #BRANCH ORIGINAL TINIBA DEFINITIONS:
-	  #export TINIBA=$HOME/tiniba/ver2.0/
-	  #export TINIBAC=$TINIBA/clustering/itaxeo
-	  #export TINIBAU=$TINIBA/utils
-	  #export PATH=$PATH:$TINIBAC:$TINIBAU:.
-	#BRANCH SEAN'S MASTER DEFINITIONS:
-	  export TINIBA=$HOME/tiniba
-	  export PATH="$TINIBA/clustering:$TINIBA/utils:$PATH"
-# Source global definitions
-	if [ -f /etc/bashrc ]; then
-		. /etc/bashrc
-	fi
-
 #CHANGE DIRECTORY ALIASES
 alias cddoc='cd ~/documentos/estudios/doctorado/'
 alias cdjas='cd ~/documentos/clases/Jassa/'
