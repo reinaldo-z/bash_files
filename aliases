@@ -6,6 +6,7 @@ alias cdjas='cd ~/documentos/clases/Jassa/'
 
 #COMMON BASH USED ALIASES
 alias cl='clear'
+alias grepn='grep -nr'
 alias l='ls'
 alias l1='ls -1'
 alias l1r='ls -1r'
