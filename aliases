@@ -20,6 +20,7 @@ alias ga='git add *'
 alias gb='git branch'
 alias gc='git commit -am'
 alias gpo='git push origin'
+alias gpu='git pull origin'
 alias gs='git status'
 
 #SCRIPT ALIASES
