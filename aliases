@@ -1,7 +1,8 @@
 # There is needed ot add the address of this file  into the ~/.bashrc  original file.
 
 #MEDUSA ALIASES / EXPORT
-alias abinit='/home/prog/HEXA/abinit-7.0.5/abinit/bin/abinit'
+#alias abinit='/home/prog/HEXA/abinit-7.0.5/abinit/bin/abinit'
+alias abinit="/home/sma/bin/bin/abinip"
 export LANGUAGE="en"
 export LANG="C"
 export LC_MESSAGES="C"
