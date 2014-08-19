@@ -19,6 +19,8 @@ alias ll='ls -lhA'
 #COMMON BASH USED ALIASES
 alias cl='clear'
 alias grepn='grep -nr'
+alias sls='screen -ls'
+alias sr='screen -R'
 alias x='exit'
 
 #GIT ALIASES
