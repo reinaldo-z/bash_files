@@ -1,7 +1,7 @@
 # There is needed ot add the address of this file  into the ~/.bashrc  original file.
 
 #CHANGE DIRECTORY ALIASES
-alias ..=
+alias ..='cd ..'
 alias cddoc='cd ~/Documentos/estudios/doctorado/'
 alias cdjas='cd ~/Documentos/clases/Jassa/'
 
