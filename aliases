@@ -18,6 +18,7 @@ alias ll='ls -lhA'
 
 #COMMON BASH USED ALIASES
 alias cl='clear'
+alias cl1='clear ; ls -1'
 alias cls='clear ; ls'
 alias grepn='grep -nr'
 alias sls='screen -ls'
