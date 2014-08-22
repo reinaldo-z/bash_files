@@ -8,6 +8,9 @@ alias cddoc='cd ~/Documentos/estudios/doctorado/'
 alias cdjas='cd ~/Documentos/clases/Jassa/'
 
 #LS ALIASES
+alias cl1='clear ; ls -1'
+alias cls='clear ; ls'
+alias cl1a='clear ; ls -1A'
 alias l='ls'
 alias l1='ls -1'
 alias l1r='ls -1r'
@@ -18,8 +21,6 @@ alias ll='ls -lhA'
 
 #COMMON BASH USED ALIASES
 alias cl='clear'
-alias cl1='clear ; ls -1'
-alias cls='clear ; ls'
 alias emacs='emacs -nw'
 alias grepn='grep -nr'
 alias scl='screen -ls'
