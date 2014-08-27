@@ -35,7 +35,7 @@ elif [ -z "$1" ]; then
 		for i in ${gp_tex_files[@]}; do
 			pdflatex $i
 		done
-		rm *.aux *.log *-gp-inc-eps-converted-to.pdf *-gp.tex
+		rm *.aux *.log *-gp-inc-eps-converted-to.pdf *-gp.tex *-gp-inc.eps
 		exit 0
 	fi
 
@@ -51,7 +51,7 @@ elif [ "$1" == -q ]; then
 			echo -e "Compiling: $i"
 			pdflatex $i >/dev/null
 		done
-		rm *.aux *.log *-gp-inc-eps-converted-to.pdf *-gp.tex
+		rm *.aux *.log *-gp-inc-eps-converted-to.pdf *-gp.tex *-gp-inc.eps
 		exit 0
 	fi
 

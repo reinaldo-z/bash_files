@@ -21,6 +21,7 @@ alias ll='ls -lhA'
 
 #COMMON BASH USED ALIASES
 alias cl='clear'
+#alias countcol='awk '{print NF}' file | sort -nu | tail -n 1'
 alias emacs='emacs -nw'
 alias grepn='grep -nr'
 alias scl='screen -ls'
