@@ -22,7 +22,7 @@ alias ll='ls -lhA'
 
 #COMMON BASH USED ALIASES
 alias cl='clear'
-#|alias countcol='awk '{print NF}' file | sort -nu | tail -n 1'
+# alias countcol='awk '{print NF}' file | sort -nu | tail -n 1'
 alias emacs='emacs -nw'
 alias grepn='grep -nr'
 alias scl='screen -ls'
@@ -80,3 +80,14 @@ function extract {
     fi
 fi
 }
+
+#FUNCTION TO COUNT THE NUMBER OF COLUMNS IN A FILE
+function countclm {
+  if [ -z "$1" ]; then
+    echo -e "Select a file to count the number of columns"  
+  else
+    awk '{print NF}' "$1" | sort -nu | tail -n 1
+  fi
+}
+
+  
