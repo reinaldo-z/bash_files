@@ -40,8 +40,8 @@ alias gpu='git pull origin'
 alias gs='git status'
 
 #SCRIPT ALIASES
-alias plotex='/home/reinaldo/system_config/bash_files/plotex.sh'
-alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
+# alias plotex='/home/reinaldo/system_config/bash_files/plotex.sh'
+# alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
 
 #SSH ALIASES
 alias sm='ssh medusa'

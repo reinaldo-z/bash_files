@@ -52,6 +52,8 @@ fi
 #PLOTEX
 #FUNCTION TO COMPILE ALL PLOTS IN $pwd COMMING FROM THE PDFLATEX GNUPOLOT TERM.
 
+
+function plotex {
 declare -a possible_options=(''  'q'  '-h')
 
 if [ "$1" == "-h" ]; then
@@ -117,6 +119,5 @@ else
   done
 fi  
 }
-
-
+} #end of function
 
