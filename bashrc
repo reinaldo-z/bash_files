@@ -1,4 +1,4 @@
-# There is needed ot add the address into the ~/.bashrc  original file.
+#Add to ~/.bashrc: source path_of_tis_file/bashrc
 
 #PROMPT PERSONALIZATION
 function check_branch {

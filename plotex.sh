@@ -14,7 +14,7 @@
 #Thinking about there could be another *.tex file in the working directory there is needed to have *-gp.tex file(s).
 #All the *.tex files will be excluded. 
 
-declare -a possible_options=(''  'q'  'h')
+declare -a possible_options=(''  'q'  '-h')
 
 if [ "$1" == "-h" ]; then
 ####Help info
