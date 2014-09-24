@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# RMTEX
+# Function to easy remove all temporary files created when compiling a LaTeX doc
+
+if [ -z "$1" ]; then
+  echo -e "Select the main file name of temporary files to remove (include the \".\")"
+else
+  files_to_remove=`ls *-eps-converted-to.pdf "$1"aux "$1"fdb_latexmk "$1"log "$1"out "$1"snm "$1"synctex.gz "$1"toc 2>/dev/null`
+  if [ -z "$files_to_remove" ]; then
+    echo -e "No temporary files to remove."
+  else
+    for i in ${files_to_remove[@]}; do
+      rm `echo $i`
+      echo -e "Deleted file: '$i'"
+    done
+  fi  
+fi

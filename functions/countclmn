@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# COUNTCLMN
+# FUNCTION TO COUNT THE NUMBER OF COLUMNS IN A FILE
+if [ -z "$1" ]; then
+  echo -e "Select a file to count the number of columns"  
+else
+  awk '{print NF}' "$1" | sort -nu | tail -n 1
+fi

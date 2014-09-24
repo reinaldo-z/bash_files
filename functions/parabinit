@@ -1,0 +1,161 @@
+#!/bin/bash
+
+# SABINIT
+# FUNCTION TO RUN ABINIT IN PARALLEL
+# Actually only running the Sean's version: 
+# Located at: /home/sma/bin/bin/abinip
+
+# Email info
+eaddress="a.bxc@cio.mx"
+host="aida"
+mailserv="mail"
+
+# Location of parallel installation of abinit
+abinit5=/home/sma/bin/bin/abinip
+
+
+# Send mail function.
+send_email ()
+{
+    ssh "$host" 'echo "your calculations have finished." | "$mailserv" -s "tasks completed" "$eaddress"'
+}
+
+send_email ()
+{
+    ssh aida 'echo "your calculations have finished." | mail -s "tasks completed" sma@cio.mx'
+}
+
+
+if [ "$#" -eq 0 ] ; then
+	echo -e "\t Usage directions:   $ parabinit [options] <arguments>"
+	echo -e "\t For more info type: $ parabinit -h"
+	exit 0
+fi
+
+
+# Initialization of variables
+files=""
+nodes=12
+logfile=""
+email="0"
+waiting=3
+
+# gets options
+while getopts ":f:, n:, l:, e, h, H" OPTION
+do
+	case $OPTION in
+		f)
+			files=$OPTARG
+            ;;
+        n)
+			nodes=$OPTARG
+            ;;
+        l)
+			logfile="> $OPTARG"
+            ;;
+        e)
+			email=1
+            ;;
+        h)	#show help
+			clear
+		  	echo -e "\n\t S C R I P T   T O   R U N   A B I N I T   I N   P A R A L L E L\n"
+			echo -e "Usage directions: \t parabinit [options] <arguments>\n"
+			echo -e "OPTIONS:\t ARGUMENTS:"
+			echo -e "\n  -f\t\t Name of the 'case.files' file to run ABINIT."
+			echo -e "\t\t Characteristic: string, followed by the '.files' suffix."
+			echo -e "\t\t Required to run. No default value defined."
+			echo -e "\n"
+			echo -e "  -n \t\t Number of threads to use."
+			echo -e "\t\t Characteristic: number, integer."
+			echo -e "\t\t Not requiered to run; default is 12 so if you don't chose"
+			echo -e "\t\t another value there will be used 12 threads to run."
+			echo -e "\n"
+			echo -e "   -l\t\t Name of the log file."
+			echo -e "\t\t Characteristic: string followed by the '.log' suffix."
+			echo -e "\t\t Not requiered to run; default is <null>."
+			echo -e "\t\t If you don't define the name of the log file, the info"
+			echo -e "\t\t will be shoun in the therminal. Otherwise the info of the"
+			echo -e "\t\t run will be saved in the file.log archive and will not be"
+			echo -e "\t\t shown in the terminal."
+			echo -e "\n"
+			echo -e "   -e\t\t E-mail address."
+			echo -e "\t\t Characteristic: string."
+			echo -e "\t\t Not requiered to run; default is <null>."
+			echo -e "\t\t Before run using the '-e' flag set up the email and "
+			echo -e "\t\t hostname."
+			echo -e "\t\t For more info type: $ parabinit -H"
+            ;;            
+        H)
+			clear
+		  	echo -e "\n\t S C R I P T   T O   R U N   A B I N I T   I N   P A R A L L E L"
+			echo -e "\t\t Set up the email address and the host"
+			echo -e "\n"
+			echo -e "    First take in account that you will need to have ssh passwordless"
+			echo -e "  acces to a computer which has mail service installed or similar. "
+			echo -e "\n"
+			echo -e "    To set up this service modify the varialbes 'eaddress',  'host',"
+			echo -e "  and 'mailserv' near to the 8th line of this script, as follows: "
+			echo -e "\t  eaddress=\"<your_email@address>\" (address to receive the mail)"  
+			echo -e "\t  host=\"hostname\" (to have ssh passwordless connection)"
+			echo -e "\t  mailserv=\"mail service software\" (i.e. mail, mutt...)"
+			echo -e "\n"
+			echo -e "\t    Once it has been done, you can run using the '-e' flag and"
+			echo -e "\t  automatically an email will be setn when the run finishes"
+			echo -e "\n"
+			exit 0
+            ;;            
+        ?)
+			echo -e "\t Input error."
+			echo -e "\t For more info type: $ parabinit -h"
+			exit 0
+            ;;	
+   #      :)
+			# echo -e "\t Input error."
+			# echo -e "\t For more info type: $ parabinit -h"
+			# exit 0
+   #          ;;	            
+	esac
+done
+
+# echo "files = $files"
+# echo "nodes = $nodes"
+# echo "logfile = $logfile"
+# echo "email = $email"
+
+
+# check if the "file.files" exist
+if [ ! -f "$files" ]; then
+	echo -e "\t The file '$files' does not exist."
+	exit 0
+fi
+
+
+# check if the variable "nodes" is an integer 
+# nodes=hola
+if ! test "$nodes" -gt 0 2> /dev/null ; then
+	echo -e "\t Invalid option for the number of threads."
+	echo -e "\t For more info type: $ parabinit -h"
+	exit 0
+fi
+
+
+echo -e "\t You will run abinit in parallel using $nodes nodes as follows:"
+echo -e "\t\t abinit < $files $logfile"
+if [ "$email" == 1 ]; then
+	echo -e "\t Also an email will be sent to $eaddress when the procces finishes."
+fi
+echo -e "\t Waithing $waiting seconds if you want to abort."
+sleep "$waiting"
+
+echo "mpdboot -v -r ssh -f NODE -n 1 > /dev/null"
+echo "mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files $logfile"
+echo "mpdallexit"
+
+if [ "$email" == 1 ]; then
+    send_email
+	echo -e "\t Sending mail to $eaddress."
+fi
+
+
+
+

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# AB_ENERGIES
+# A tiny bash function to format ABINIT eigenvalue files for easy plotting. 
+# Thanks Sean
+
+if [ -z "$1" ]; then
+    echo -e "\tA tiny bash function to format ABINIT eigenvalue files \n\tfor easy plotting."
+    echo -e "\tUsage:\t \$ ab_energies <input file>  <output filename> "
+elif [ -z "$2" ]; then
+    echo -e "\tUsage:\t \$ ab_energies <input file>  <output filename> \n\tPlease type an output filename." 
+else
+  if [ -e "$1" ]; then
+    local infile=$1
+    local outfile=$2
+    awk '{ printf "%s", $0 }' $infile | sed -e $'s/kpt#/\\\n/g' | sed -e 's/\(,\).*\()\)/\ \ /' | tail -n +2 > $outfile 
+  else
+    echo -e "\tFatal error. The file '$1' does not exist."
+  fi
+fi

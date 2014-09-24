@@ -1,0 +1,6 @@
+Add to the ~/.bashrc or to the aliases fie the path of this folder, i.e.: 
+
+	export FUNCTIONS=/home/reinaldo/system_config/bash_files/functions
+	export PATH="$FUNCTIONS:$PATH"
+
+Also make exacutables all the scripts contained in this folder, excluding this readme.
