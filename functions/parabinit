@@ -27,8 +27,8 @@ send_email ()
 
 
 if [ "$#" -eq 0 ] ; then
-	echo -e "\t Usage directions:   $ parabinit [options] <arguments>"
-	echo -e "\t For more info type: $ parabinit -h"
+	echo -e "\t Usage directions:   parabinit [options] <arguments>"
+	echo -e "\t For more info type: parabinit -h"
 	exit 0
 fi
 
@@ -83,7 +83,7 @@ do
 			echo -e "\t\t Not requiered to run; default is <null>."
 			echo -e "\t\t Before run using the '-e' flag set up the email and "
 			echo -e "\t\t hostname."
-			echo -e "\t\t For more info type: $ parabinit -H"
+			echo -e "\t\t For more info type: parabinit -H"
             ;;            
         H)
 			clear
@@ -106,12 +106,12 @@ do
             ;;            
         ?)
 			echo -e "\t Input error."
-			echo -e "\t For more info type: $ parabinit -h"
+			echo -e "\t For more info type: parabinit -h"
 			exit 0
             ;;	
    #      :)
 			# echo -e "\t Input error."
-			# echo -e "\t For more info type: $ parabinit -h"
+			# echo -e "\t For more info type: parabinit -h"
 			# exit 0
    #          ;;	            
 	esac
@@ -134,7 +134,7 @@ fi
 # nodes=hola
 if ! test "$nodes" -gt 0 2> /dev/null ; then
 	echo -e "\t Invalid option for the number of threads."
-	echo -e "\t For more info type: $ parabinit -h"
+	echo -e "\t For more info type: parabinit -h"
 	exit 0
 fi
 
