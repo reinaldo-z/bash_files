@@ -51,7 +51,8 @@ do
 			nodes=$OPTARG
             ;;
         l)
-			logfile="> $OPTARG"
+			arg=$OPTARG
+			logfile=`echo " > $arg"`
             ;;
         e)
 			email=1
