@@ -51,8 +51,7 @@ do
 			nodes=$OPTARG
             ;;
         l)
-			arg=$OPTARG
-			logfile=`echo " > $arg"`
+			logfile=$OPTARG
             ;;
         e)
 			email=1
@@ -140,23 +139,54 @@ if ! test "$nodes" -gt 0 2> /dev/null ; then
 fi
 
 
+# echo -e "\t You will run abinit in parallel using $nodes nodes as follows:"
+# echo -e "\t\t abinit < $files $logfile"
+# if [ "$email" == 1 ]; then
+# 	echo -e "\t Also an email will be sent to $eaddress when the procces finishes."
+# fi
+# echo -e "\t Waithing $waiting seconds if you want to abort."
+# sleep "$waiting"
+
+# mpdboot -v -r ssh -f NODE -n 1 > /dev/null
+# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files $logfile
+# mpdallexit
+
+# if [ "$email" == 1 ]; then
+#     send_email
+# 	echo -e "\t Sending mail to $eaddress."
+# fi
+
 echo -e "\t You will run abinit in parallel using $nodes nodes as follows:"
-echo -e "\t\t abinit < $files $logfile"
+
+#Tell to user if a logfile will be created
+if [ -z "$logfile" ]; then
+	echo -e "\t\t abinit"
+else
+	echo -e "\t\t abinit < $files $logfile"
+fi
+
+#Tell to user if an email will be sent
 if [ "$email" == 1 ]; then
 	echo -e "\t Also an email will be sent to $eaddress when the procces finishes."
 fi
+
 echo -e "\t Waithing $waiting seconds if you want to abort."
 sleep "$waiting"
 
-mpdboot -v -r ssh -f NODE -n 1 > /dev/null
-mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files $logfile
-mpdallexit
+if [ -z "$logfile" ]; then
+	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files 
+	mpdallexit
+else
+	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files > $logfile
+	mpdallexit
+fi
+
 
 if [ "$email" == 1 ]; then
     send_email
 	echo -e "\t Sending mail to $eaddress."
 fi
-
-
 
 
