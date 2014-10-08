@@ -162,7 +162,7 @@ echo -e "\t You will run abinit in parallel using $nodes nodes as follows:"
 if [ -z "$logfile" ]; then
 	echo -e "\t\t abinit"
 else
-	echo -e "\t\t abinit < $files $logfile"
+	echo -e "\t\t abinit < $files > $logfile"
 fi
 
 #Tell to user if an email will be sent
