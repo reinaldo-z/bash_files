@@ -12,7 +12,7 @@ mailserv="mail"
 
 # Sean's  french Parallel abinit 
 abinit5=/home/sma/bin/bin/abinip
-# Sean's last abinit version
+# Sean's 7.8.2 abinit version
 abinit782=/home/sma/bin/bin/abinip
 
 # Send mail function.
