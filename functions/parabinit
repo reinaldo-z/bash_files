@@ -10,9 +10,10 @@ eaddress="a.bxc@cio.mx"
 host="aida"
 mailserv="mail"
 
-# Location of parallel installation of abinit
+# Sean's  french Parallel abinit 
 abinit5=/home/sma/bin/bin/abinip
-
+# Sean's last abinit version
+abinit782=/home/sma/bin/bin/abinip
 
 # Send mail function.
 send_email ()
@@ -175,11 +176,13 @@ sleep "$waiting"
 
 if [ -z "$logfile" ]; then
 	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
-	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files 
+	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files 
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files 
 	mpdallexit
 else
 	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
-	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files > $logfile
+	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files > $logfile
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files > $logfile
 	mpdallexit
 fi
 
