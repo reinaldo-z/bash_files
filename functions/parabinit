@@ -176,13 +176,13 @@ sleep "$waiting"
 
 if [ -z "$logfile" ]; then
 	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
-	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files 
-	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files 
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files 
+	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files 
 	mpdallexit
 else
 	mpdboot -v -r ssh -f NODE -n 1 > /dev/null
-	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files > $logfile
-	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files > $logfile
+	mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit5 < $files > $logfile
+	# mpiexec -np $nodes -env I_MPI_DEVICE rdssm  $abinit782 < $files > $logfile
 	mpdallexit
 fi
 
