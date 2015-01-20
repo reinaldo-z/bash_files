@@ -1,3 +1,6 @@
+# Add into the ~/.bashrc  original file: alias rmtex='/home/reinaldo/system_config/bash_files/rmtex.sh'
+
+
 #!/bin/bash
 
 #This script was created to remove all the temporary files created when a texfile is compilated.

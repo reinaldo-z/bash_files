@@ -1,4 +1,4 @@
-# There is needed ot add the address of this file  into the ~/.bashrc  original file when working @medusa.
+# Add into the ~/.bashrc  original file: source  /path/to/this/file/aliases
 
 #MEDUSA ALIASES / EXPORT
 alias abinit='/home/prog/HEXA/abinit-7.0.5/abinit/bin/abinit' #abinit7.5

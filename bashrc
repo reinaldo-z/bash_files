@@ -1,4 +1,4 @@
-#Add to ~/.bashrc: source path_of_tis_file/bashrc
+# Add into the ~/.bashrc  original file: source  /path/to/this/file/bashrc
 
 #PROMPT PERSONALIZATION
 function check_branch {

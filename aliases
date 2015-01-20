@@ -1,11 +1,11 @@
-# Add the path of this file  into the ~/.bashrc  original file.
+# Add into the ~/.bashrc  original file: source  /path/to/this/file/aliases
 
 #CHANGE DIRECTORY ALIASES
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias cddoc='cd ~/Documentos/estudios/doctorado/'
-alias cdjas='cd ~/Documentos/clases/Jassa/'
+alias cddoc='cd ~/documentos/estudios/doctorado/'
+alias cdjas='cd ~/documentos/clases/Jassa/'
 
 #LS ALIASES
 alias cl1='clear ; ls -1'
