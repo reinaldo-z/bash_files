@@ -13,42 +13,23 @@
 #produced by a gnuplot using the epslatex terminal.
 
 #This script automatically reads the corresponding names from the "set output" 
-#lines in the script, excludes the commented lines and compiles the produced
-#*.tex files.
+#lines in the script, excludes the commented output lines and compiles the 
+#produced *.tex files. Also removes the temporary files including the *.tex 
+#produced by gnuplot.
 
 #To use it only type in the pwd:
 #   plotex <filename_to_gnuplot> 
-#Also you can pass the "-q" flag to compile in quiet mode:
-#   plotex -q <filename_to_gnuplot>
 
 if [ -z "$1" ]; then
     echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
     echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
     exit 1
-elif [ "$1" == "-q" ]; then
-    if [ -z "$2" ]; then
-        echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
-        echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
-        exit 1
-    else
-        # echo
-        gnuplot "$2" 
-        texfiles=`grep output band_structure.gp | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`
-        for i in "$texfiles"; do
-            echo "Compiling $i"
-            pdflatex $i >> /dev/null
-            rm "${i//.tex}"-inc-eps-converted-to.pdf
-            rm "${i//.tex}"-inc.eps
-            rm "${i//.tex}".aux
-            rm "${i//.tex}".log
-            rm "$i"
-        done
-    fi
 else
     gnuplot "$1" 
-    texfiles=`grep output band_structure.gp | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`
-    for i in "$texfiles"; do
-        pdflatex $i
+    texfiles=(`grep output "$1" | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`)
+    for i in "${texfiles[@]}"; do
+        echo "$i exist"
+        pdflatex "$i"
         rm "${i//.tex}"-inc-eps-converted-to.pdf
         rm "${i//.tex}"-inc.eps
         rm "${i//.tex}".aux
