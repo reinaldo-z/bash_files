@@ -24,11 +24,28 @@ if [ -z "$1" ]; then
     echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
     echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
     exit 1
+elif [ "$1" = "-q" ]; then 
+        echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
+        echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
+        exit 1
+    else
+        gnuplot "$2" 
+        texfiles=(`grep output "$2" | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`)
+        for i in "${texfiles[@]}"; do
+            # echo "$i exist"
+            echo -e "Compiling: $i"
+            pdflatex "$i" >/dev/null
+            rm "${i//.tex}"-inc-eps-converted-to.pdf
+            rm "${i//.tex}"-inc.eps
+            rm "${i//.tex}".aux
+            rm "${i//.tex}".log
+            rm "$i"
+        done
+    fi
 else
-    gnuplot "$1" 
     texfiles=(`grep output "$1" | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`)
     for i in "${texfiles[@]}"; do
-        echo "$i exist"
+        # echo "$i exist"
         pdflatex "$i"
         rm "${i//.tex}"-inc-eps-converted-to.pdf
         rm "${i//.tex}"-inc.eps
