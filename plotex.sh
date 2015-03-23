@@ -18,7 +18,8 @@
 #produced by gnuplot.
 
 #To use it only type in the pwd:
-#   plotex <filename_to_gnuplot> 
+#   plotex <filename_to_gnuplot>  (to compile in regular mode)
+#   plotex -q <filename_to_gnuplot>  (to compile in quiet mode)
 
 if [ -z "$1" ]; then
     echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
