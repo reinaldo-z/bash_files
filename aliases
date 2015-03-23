@@ -4,8 +4,8 @@
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias cddoc='cd ~/documentos/estudios/doctorado/'
-alias cdjas='cd ~/documentos/clases/Jassa/'
+alias cddoc='cd ~/documents/estudios/doctorado/'
+alias cdjas='cd ~/documents/clases/Jassa/'
 
 #LS ALIASES
 alias cl1='clear ; ls -1'
@@ -46,6 +46,7 @@ alias gs='git status'
 
 #SSH ALIASES
 alias sm='ssh medusa'
+alias sme='ssh medusaext'
 alias sa='ssh aida'
 
 

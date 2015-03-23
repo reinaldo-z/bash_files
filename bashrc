@@ -21,5 +21,10 @@ fi
 echo "$BRANCH"
 }
 
+#EXPORT LANGUAGE ENGLISH
+export LANGUAGE="en"
+export LANG="C"
+export LC_MESSAGES="C"
+export LC_TIME=en_US.UTF-8
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h: \[\033[00;31m\]$(check_branch)\[\033[01;34m\]\W \$\[\033[00m\] '
