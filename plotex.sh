@@ -45,6 +45,7 @@ elif [ "$1" = "-q" ]; then
         done
     fi
 else
+    gnuplot "$2" 
     texfiles=(`grep output "$1" | grep -v \# |awk -F"\"" '{for(i=2;i<=NF;i+=2)print $i}'`)
     for i in "${texfiles[@]}"; do
         # echo "$i exist"
