@@ -25,7 +25,8 @@ if [ -z "$1" ]; then
     echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
     echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
     exit 1
-elif [ "$1" = "-q" ]; then 
+elif [ "$1" = "-q" ]; then
+    if [ -z "$2" ]; then
         echo -e "\tUsage: \n\t\tplotex <filename_of_gnuplot_script>"
         echo -e "\t\tplotex -q <filename_of_gnuplot_script> (to compile in quiet mode)\n"
         exit 1
